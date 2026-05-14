@@ -1,0 +1,89 @@
+name: sync-faction-webcontent-and-apply-ja
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync-and-patch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: get upstream version
+        id: get_upstream_version
+        run: echo "upstream_version=$(curl -s https://api.github.com/repos/factionsecurity/faction/releases/latest | grep '"tag_name":' | cut -d '"' -f 4)" >> "$GITHUB_OUTPUT"
+
+      - name: clone upstream
+        run: |
+          rm -rf /tmp/faction-main
+          git clone --depth 1 https://github.com/factionsecurity/faction.git /tmp/faction-main
+
+      - name: sync WebContent
+        run: |
+          mkdir -p vendor/faction/
+          rsync -a --delete /tmp/faction-main/ vendor/faction/
+
+      - name: apply ja patch
+        run: python3 scripts/apply_ja_patch.py
+
+      - name: check changes
+        id: check_changes
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: commit and push
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "[bot]日本語パッチ自動適用($(TZ=Asia/Tokyo date +"%Y/%m/%d %H:%M:%S"))"
+          git push
+
+      - name: setup jdk
+        if: steps.check_changes.outputs.has_changes == 'true'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: setup maven
+        if: steps.check_changes.outputs.has_changes == 'true'
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.9
+
+      - name: build war
+        if: steps.check_changes.outputs.has_changes == 'true'
+        working-directory: vendor/faction
+        run: mvn clean compile war:war
+
+      - name: make release tag
+        if: steps.check_changes.outputs.has_changes == 'true'
+        id: make_tag
+        run: echo "tag_name=$(TZ=Asia/Tokyo date +"%Y%m%d%H%M%S")" >> "$GITHUB_OUTPUT"
+
+      - name: create release and upload war
+        if: steps.check_changes.outputs.has_changes == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.make_tag.outputs.tag_name }}
+          name: ${{ steps.get_upstream_version.outputs.upstream_version }}-ja ${{ steps.make_tag.outputs.tag_name }}
+          body: |
+            # OWASP Faction 日本語化パッチ適用版
+            このリリースは自動的に作成されました。
+            不具合を発見しましたら、issueからお知らせください。
+          files: vendor/faction/target/faction.war

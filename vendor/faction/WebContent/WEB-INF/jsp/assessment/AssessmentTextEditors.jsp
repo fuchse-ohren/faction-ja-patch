@@ -1,0 +1,470 @@
+<%@page import="org.apache.struts2.components.Include"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@taglib prefix="bs" uri="/WEB-INF/BootStrapHandler.tld"%>
+
+<s:set var="hideit"
+	value="(assessment.InPr || assessment.prComplete || assessment.finalized)" />
+
+<style>
+.templates {
+	min-height: 570px;
+	max-height: 570px;
+}
+#summary{
+	background-color:white;
+}
+#risk{
+	background-color:white;
+}
+#notes{
+	background-color:white;
+}
+#engagmentnotes{
+	background-color:white;
+}
+.input-group-addon{
+	background-color: #030D1C !important;
+	border-top-left-radius: 4px !important;
+	border-bottom-left-radius: 4px !important;
+}
+.form-control{
+border-color: #030D1C !important;
+}
+
+</style>
+
+
+<div class="row">
+	<div class="col-md-6">
+		<!-- Horizontal Form -->
+		<div class="box box-info">
+			<div class="box-header with-border">
+				<h3 class="box-title">
+					<i class="glyphicon glyphicon-user"></i> 連絡先
+				</h3>
+			</div>
+			<!-- /.box-header -->
+			<!-- form start -->
+			<form class="form-horizontal">
+				<div class="box-body row">
+						<div class="col-sm-12">
+							<label for="assessor" class="control-label">検査者</label>
+							
+							<div class="input-group">
+							<div class="input-group-addon ">
+								<i class="fa fa-user-group"></i>
+							</div>
+							<input type="text" disabled="" class="form-control" id="assessor"
+								value="<s:iterator value="assessment.assessor" ><s:property value="fname"/>&nbsp;<s:property value="lname"/>; </s:iterator>">
+								</div>
+
+						</div>
+						<div class="col-sm-6">
+						<label for="engagement" class="control-label">交戦責任者</label>
+							<div class="input-group">
+							<div class="input-group-addon ">
+								<i class="fa fa-user"></i>
+							</div>
+							<input type="text" disabled="" class="form-control"
+								id="engagement"
+								value="<s:property value="assessment.engagement.fname"/>&nbsp;<s:property value="assessment.engagement.lname"/>">
+								</div>
+						</div>
+						<div class="col-sm-6">
+						<label for="remediation" class="control-label">修正担当者</label>
+							<div class="input-group">
+							<div class="input-group-addon ">
+								<i class="fa fa-user"></i>
+							</div>
+							<input type="text" disabled="" class="form-control"
+								id="remediation"
+								value="<s:property value="assessment.remediation.fname"/>&nbsp;<s:property value="assessment.remediation.lname"/>">
+								</div>
+						</div>
+						<div class="col-sm-12">
+						<label for="Distro" class="control-label">配布先</label>
+							<div class="input-group">
+							<div class="input-group-addon ">
+								<i class="fa fa-envelope"></i>
+							</div>
+							<input type="text" disabled="" class="form-control" id="Distro"
+								value="<s:property value="assessment.distributionList"/>">
+								</div>
+						</div>
+
+				</div>
+			<!-- /.box-body -->
+			</form>
+		</div>
+	<!-- /.box -->
+	</div>
+
+	<div class="col-md-6">
+		<!-- Horizontal Form -->
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">
+					<i class="glyphicon  glyphicon-list-alt"></i> 検査情報
+				</h3>
+			</div>
+			<!-- /.box-header -->
+			<!-- form start -->
+			<div class="form-horizontal">
+				<div class="box-body row">
+					<div class="col-sm-6">
+						<label class="">期間</label>
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-calendar"></i>
+								</div>
+								<input disabled class="form-control pull-right"
+									id="reservation" type="text"
+									value='<s:property value="assessment.start"/> - <s:property value="assessment.end"/>'>
+							</div>
+						<!-- /.input group -->
+					</div>
+					<div class="col-sm-6">
+						<label for="Distro" class="control-label">状態 <span id="status_header"></span></label>
+							<div class="input-group">
+							<div class="input-group-addon ">
+								<i class="fa fa-circle-dot"></i>
+							</div>
+						<select class='form-control select2 ' style='width: 100%;'
+							id="status"
+							<s:if test="currentAssessment.finalized">readonly</s:if>>
+							<s:iterator value="statuses" var="status">
+								<option value="<s:property value="#status.id"/>"
+									<s:if test="#status.name.equals(assessment.status)">selected</s:if>><s:property
+										value="#status.name" /> </option> 
+							</s:iterator>
+						</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<label for="type" class="control-label">型</label>
+							<div class="input-group">
+							<div class="input-group-addon ">
+								<i class="fa fa-gem"></i>
+							</div>
+							<input type="text" disabled="" class="form-control" id="type"
+								value="<s:property value="assessment.type.type"/>">
+								</div>
+					</div>
+					<div class="col-sm-6">
+						<label for="team" class="control-label">組織</label>
+							<div class="input-group">
+							<div class="input-group-addon ">
+								<i class="fa fa-user-group"></i>
+							</div>
+							<input type="text" disabled="" class="form-control" id="team"
+								value="<s:property value="assessment.assessor[0].team.teamName"/>">
+								</div>
+						</div>
+					<div class="col-sm-6">
+						<label for="campaign" disabled="" class="control-label">キャンペーン</label>
+							<div class="input-group">
+							<div class="input-group-addon ">
+								<i class="fa fa-flag"></i>
+							</div>
+							<input type="text" disabled="" class="form-control" id="campaign"
+								value="<s:property value="assessment.campaign.name"/>">
+								</div>
+						</div>
+				</div>
+				<!-- /.box-body -->
+
+			</div>
+		</div>
+		<!-- /.box -->
+	</div>
+</div>
+
+<s:if test="assessment.varsExist">	
+					
+<div class="row">
+	<div class="col-md-12">
+		<!-- Horizontal Form -->
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">
+					<i class="glyphicon  glyphicon-list-alt"></i> 変数
+				</h3>
+			</div>
+			<!-- /.box-header -->
+			<!-- form start -->
+			<div class="form-horizontal">
+				<div class="box-body">
+				<div class="row">	
+					<s:iterator value="assessment.customFields">
+						<s:if test="type.fieldType < 3">
+							<div class="form-group col-sm-3">
+								<div class="col-sm-12">
+								<label class=""
+									title='Variable: &#x24;{cf<s:property value="type.variable"/>}'><s:property value="type.key"/>
+										<span id="cust${id}_header"></span><br/><small>変数: &#x24;&#x7B;cf<s:property value="type.variable"/>&#x7D;</small>
+										</label>
+
+								<s:if test="!type.readonly">
+									<div class="">
+										<s:if test="type.fieldType == 0">
+											<input type="text" class="form-control" id="cust${id}"
+												value='<s:property value="value"/>'
+												<s:if test="assessment.InPr || assessment.prComplete || assessment.finalized">disabled</s:if> />
+										</s:if>
+										<s:if test="type.fieldType == 1">
+											<br>
+											<input type="checkbox" class="icheckbox_minimal-blue"
+												style="width: 20px; height: 20px; margin-top: -30px"
+												id="cust<s:property value="id"/>"
+												<s:if test="value == 'true'">選択済</s:if>
+												<s:if test="assessment.InPr || assessment.prComplete || assessment.finalized">disabled</s:if> />
+										</s:if>
+										<s:if test="type.fieldType == 2">
+											<select class='form-control select2 ' style='width: 100%;'
+												id="cust<s:property value="id"/>"
+												<s:if test="currentAssessment.finalized">readonly</s:if>>
+												<s:iterator value="type.defaultValue.split(',')" var="option">
+													<s:set var="aOption" value="option" />
+													<option value="<s:property value="option"/>"
+														<s:if test="value.equals(#aOption)">selected</s:if>><s:property
+															value="option" /></option> 
+												</s:iterator>
+											</select>
+										</s:if>
+									</div>
+								</s:if>
+								<s:else>
+									<div class="">
+										<input type="text" class="form-control" value='${value}'
+											disabled>
+									</div>
+								</s:else>
+								</div>
+							</div>
+						</s:if>
+					</s:iterator>
+					</div> <!-- end iterator -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</s:if>
+
+
+<div class="row">
+	<!-- SUMMARY Section -->
+	<div class="col-md-10">
+		<div class="box box-warning">
+			<div class="box-header">
+				<h3 class="box-title">
+					<i class="glyphicon glyphicon-edit"></i> 概要 <span
+						id="summary_header" class="edited"></span><small></small>
+				</h3>
+				<div class="box-tools pull-right"></div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body pad">
+				<form>
+					<div name="editor1" toolbar="Full" id="summary"
+						clickToEnable="false" readonly="${hideit}">
+						<s:property value="assessment.summary" />
+					</div>
+				</form>
+				<s:if test="!(hideit)">
+					<br>
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-6">
+							<input id="tempSearch1" class="form-control tempSearch"
+								for="summary" placeholder="Search for Template" />
+						</div>
+					</div>
+				</s:if>
+
+
+			</div>
+		</div>
+		<!-- /.box -->
+	</div>
+	<div class="col-md-2">
+		<div class="box box-warning">
+			<div class="box-header">
+				<h3 class="box-title">
+					<i class="glyphicon glyphicon-edit"></i> 雛型 <small>ダブルクリックして追加</small>
+
+				</h3>
+				<small></small>
+				<div class="box-tools pull-right"></div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body pad">
+				<div class="form-group">
+					<select id="summaryTemplates" multiple="false"
+						class="form-control templates">
+						<s:iterator value="summaryTemplates">
+							<option value="<s:property value='id'/>" title="<s:property value='user.fname'/> <s:property value='user.lname'/>"
+								global="<s:property value="global"/>"
+								<s:if test="global == true">
+								class='globalTemplate'
+								</s:if><s:else>
+								class='userTemplate'
+								</s:else>>
+							<s:property value="title"/>
+							</option>
+						</s:iterator>
+					</select>
+				</div>
+				<s:if test="!(hideit)">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-11" style="padding-top: 8px">
+							<span id="saveTemplateSideBar"
+								class="vulnControl vulnControl-add saveTemplate" for="summary"
+								title='保存'> <i class="fa fa-save"></i>
+							</span> <span id="addTemplateSideBar"
+								class="vulnControl vulnControl-add addTemplate" for="summary"
+								title='編集画面に雛型を追加'> <i class="fa fa-plus"></i>
+							</span> <span id="deleteTemplateSideBar"
+								class="vulnControl vulnControl-delete deleteTemplate"
+								title='選択済みの雛型を削除' for="summary"> <i
+								class="fa fa-trash"></i>
+							</span>
+						</div>
+					</div>
+				</s:if>
+			</div>
+
+
+		</div>
+	</div>
+	<!-- /.box -->
+</div>
+<!-- </div>
+   <div class="row">  -->
+
+<!-- Risk Analysis Section -->
+<div class="row">
+	<div class="col-md-10">
+		<div class="box box-danger">
+			<div class="box-header">
+				<h3 class="box-title">
+					<i class="glyphicon glyphicon-asterisk"></i> 詳細 /
+					脅威分析 / 対象範囲<span id="risk_header" class="edited"></span><small></small>
+				</h3>
+				<div class="box-tools pull-right"></div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body pad">
+				<form>
+					<div name="editor2" toolbar="Full" id="risk"
+						clickToEnable="false" readonly="${hideit}">
+						<s:property value="assessment.riskAnalysis"/>
+					</div>
+				</form>
+				<s:if test="!(hideit)">
+					<br>
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-6">
+							<input id="tempSearch2" class="form-control tempSearch "
+								for="risk" placeholder="Search for Template" />
+						</div>
+					</div>
+				</s:if>
+			</div>
+		</div>
+		<!-- /.box -->
+	</div>
+	<div class="col-md-2">
+		<div class="box box-warning">
+			<div class="box-header">
+				<h3 class="box-title">
+					<i class="glyphicon glyphicon-edit"></i> 雛型 <small>ダブルクリックして追加</small>
+				</h3>
+				<small></small>
+				<div class="box-tools pull-right"></div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body pad">
+				<div class="form-group">
+					<select id="riskTemplates" multiple="false"
+						class="form-control templates">
+						<s:iterator value="riskTemplates">
+							<option value="<s:property value='id'/>" title="<s:property value='user.fname'/> <s:property value='user.lname'/>"
+								global="<s:property value='global'/>"
+								<s:if test="global == true">
+								class='globalTemplate'
+							</s:if><s:else>
+								class='userTemplate'
+							</s:else>>
+							<s:property value='title'/>
+							</option>
+						</s:iterator>
+					</select>
+				</div>
+				<s:if test="!(hideit)">
+					<div class="row">
+						<!-- <div class="col-md-8">
+							<input class="form-control searchTemplate"
+								for="risk" placeholder="Search for Template" />
+						</div>-->
+						<div class="col-md-1"></div>
+						<div class="col-md-11" style="padding-top: 8px">
+							<span id="saveTemplateSideBar"
+								class="vulnControl vulnControl-add saveTemplate" for="risk"
+								title='保存'> <i class="fa fa-save"></i>
+							</span> <span id="addTemplateSideBar"
+								class="vulnControl vulnControl-add addTemplate" for="risk"
+								title='編集画面に雛型を追加'> <i class="fa fa-plus"></i>
+							</span> <span class="vulnControl vulnControl-delete deleteTemplate"
+								title='雛型を削除' for="risk"> <i
+								class="fa fa-trash"></i>
+							</span>
+						</div>
+					</div>
+				</s:if>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+<div class="row">
+
+	<!-- Engagement Notes Section -->
+	<div class="col-md-12">
+		<div class="box box-primary">
+			<div class="box-header">
+				<h3 class="box-title">
+					<i class="glyphicon glyphicon-pencil"></i> 交戦情報 <small>URL、
+						認証情報、検査対象等の検査関連情報を記入。
+						この情報は報告書に記載されません。</small>
+				</h3>
+				<div class="box-tools pull-right"></div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body pad">
+				<div class="col-md-6">
+					<form>
+						<div name="engagementnotes" toolbar="None"
+							id="engagementnotes" readonly="true" clickToEnable="false">
+							<s:property value="assessment.accessNotes" />
+						</div>
+					</form>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<br> <input id="files" type="file" multiple name="file_data"
+							<s:if test="hideit">disabled</s:if> />
+					</div>
+				</div>
+			</div>
+			<!-- /.box -->
+		</div>
+
+	</div>
+</div>

@@ -37,8 +37,10 @@ filepath	source_en	target_ja
 ./admin/DefaultVulns.jsp	"name=""${levelName}  - Level ${riskId } Due Date:"" colsize=""6"""	"name=""${levelName}  - Level ${riskId } 追跡日数:"" colsize=""6"""
 ./admin/DefaultVulns.jsp	"name=""${levelName }- Level ${riskId } Warning Date:"""	"name=""${levelName }- Level ${riskId } 警告日数:"""
 ./admin/DefaultVulns.jsp	"<bs:button color=""primary"" size=""md"" colsize=""6"" text=""Update"""	"<bs:button color=""primary"" size=""md"" colsize=""6"" text=""更新"""
-./admin/DefaultVulns.jsp	"<button class=""btn btn-danger"" id=""importDB"">Import from"	"<button class=""btn btn-danger"" id=""importDB"">Github上のVulnDBから"
-./admin/DefaultVulns.jsp	View VulnDB on GitHub</a>	インポート</a>
+./admin/DefaultVulns.jsp	"<button class=""btn btn-danger"" id=""importDB"">Import from"	"<button class=""btn btn-danger"" id=""importDB"">Factionから"
+./admin/DefaultVulns.jsp	Faction</button>	インポート</button>
+./admin/DefaultVulns.jsp	"<a href=""https://github.com/factionsecurity/data/tree/master/db"">"	"<a href=""https://github.com/fuchse-ohren/faction-vuln-data/tree/master/db"">"
+./admin/DefaultVulns.jsp	View VulnDB on GitHub</a>	脆弱性定義をGithubで閲覧</a>
 ./admin/DefaultVulns.jsp	Import Your Own Via API</a>	APIから独自の脆弱性をインポート</a>
 ./admin/DefaultVulns.jsp	"<button class=""btn btn-danger"" id=""downloadVulns"">Download"	"<button class=""btn btn-danger"" id=""downloadVulns"">すべての脆弱性を"
 ./admin/DefaultVulns.jsp	all Vulnerabilities to CSV</button>	CSV形式で保存</button>

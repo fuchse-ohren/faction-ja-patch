@@ -11,7 +11,7 @@ public class ReportFeatures {
     }
 
     public static Boolean allowSections(){
-        return false;
+        return true;
     }
 
     public static String [] getFeatures(String features){

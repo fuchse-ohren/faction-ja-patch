@@ -169,8 +169,6 @@ filepath	source_en	target_ja
 ./assessment/AssessmentTextEditors.jsp	"title='Delete Selected Templates' for=""summary""> <i"	"title='選択済みの雛型を削除' for=""summary""> <i"
 ./assessment/AssessmentTextEditors.jsp	"<i class=""glyphicon glyphicon-asterisk""></i> Detailed Summary /"	"<i class=""glyphicon glyphicon-asterisk""></i> 詳細 /"
 ./assessment/AssessmentTextEditors.jsp	"Risk Analysis / Scope<span id=""risk_header"" class=""edited""></span><small></small>"	"脅威分析 / 対象範囲<span id=""risk_header"" class=""edited""></span><small></small>"
-./assessment/AssessmentTextEditors.jsp	"<i class=""glyphicon glyphicon-edit""></i> Templates <small>Double click to append</small>"	"<i class=""glyphicon glyphicon-edit""></i> 雛型 <small>ダブルクリックして追加</small>"
-./assessment/AssessmentTextEditors.jsp	"title='Save or Create Template'> <i class=""fa fa-save""></i>"	"title='保存'> <i class=""fa fa-save""></i>"
 ./assessment/AssessmentTextEditors.jsp	"title='Delete Templates' for=""risk""> <i"	"title='雛型を削除' for=""risk""> <i"
 ./assessment/AssessmentTextEditors.jsp	"<i class=""glyphicon glyphicon-pencil""></i> Engagement Info <small>URLs,"	"<i class=""glyphicon glyphicon-pencil""></i> 交戦情報 <small>URL、"
 ./assessment/AssessmentTextEditors.jsp	credentials, and other assessment information. Not included in	認証情報、検査対象等の検査関連情報を記入。
@@ -528,3 +526,103 @@ filepath	source_en	target_ja
 ./peerreviews/TrackChanges.jsp	NA	N/A
 ./peerreviews/TrackChanges.jsp	Failed	失格
 ./peerreviews/TrackChanges.jsp	Passed	合格
+./register/newuser.jsp	"<div class=""login-group col-md-12"" style=""text-align: center""><h3>Change Password</h3></div>"	"<div class=""login-group col-md-12"" style=""text-align: center""><h3>パスワードを変更</h3></div>"
+./register/newuser.jsp	"<label for=""username"" >Username</label><br>"	"<label for=""username"" >ID</label><br>"
+./register/newuser.jsp	"<label for=""password"" >Password</label><br>"	"<label for=""password"" >パスワード</label><br>"
+./register/newuser.jsp	"<label for=""confirm"" >Confirm Password</label><br>"	"<label for=""confirm"" >パスワード(再入力)</label><br>"
+./register/newuser.jsp	"<button type=""submit"" class=""btn btn-success pull-right btn-lg"" id=""update"" >Update</button>"	"<button type=""submit"" class=""btn btn-success pull-right btn-lg"" id=""update"" >更新</button>"
+./register/newuser.jsp	"<i class=""icon fa fa-ban""></i> Alert!"	"<i class=""icon fa fa-ban""></i> 警告!"
+./register/newuser.jsp	User Name and/or Password is invalid	IDもしくはパスワードが間違っています
+./register/reset.jsp	<h3>Enter Username to Reset Account</h3>	<h3>再設定するアカウントのIDを入力してください</h3>
+./register/reset.jsp	"<label for=""username"">Username</label><br> <input"	"<label for=""username"">ID</label><br> <input"
+./register/reset.jsp	"id=""update"">Reset</button>"	"id=""update"">再設定</button>"
+./register/reset.jsp	"<i class=""icon fa fa-ban""></i> Alert!"	"<i class=""icon fa fa-ban""></i> 警告!"
+./report/TemplateConfig.jsp	<label>Default Vulnerability: </label>	<label>既定の脆弱性: </label>
+./report/TemplateConfig.jsp	"<bs:inputgroup name=""Starting XML Parameter: *"" colsize=""12"" id=""listname"">${currentMap.listname}</bs:inputgroup>"	"<bs:inputgroup name=""Starting XML Parameter: *"" colsize=""12"" id=""listname"">${currentMap.listname}</bs:inputgroup>"
+./report/TemplateConfig.jsp	"<bs:datatable columns=""XML Param, Faction Param, Has Elements, Base64 Encoded, Delete"" classname="""" id=""config"">"	"<bs:datatable columns=""XML Param, Faction Param, Has Elements, Base64 Encoded, Delete"" classname="""" id=""config"">"
+./report/TemplateConfig.jsp	"<bs:button color=""primary"" size=""md"" colsize=""6"" text=""<span class='fa fa-plus'></span> Add Row"" id=""addRow""></bs:button>"	"<bs:button color=""primary"" size=""md"" colsize=""6"" text=""<span class='fa fa-plus'></span> Add Row"" id=""addRow""></bs:button>"
+./report/Upload.jsp	"<i class=""glyphicon glyphicon-wrench""></i> XML Report Configuration"	"<i class=""glyphicon glyphicon-wrench""></i> XML報告書設定"
+./report/Upload.jsp	"<bs:box type=""success"" title=""Configured Reports"">"	"<bs:box type=""success"" title=""設定済み報告書"">"
+./report/Upload.jsp	"<bs:button color=""primary"" size=""md"" colsize=""12"" text=""<span class='fa fa-plus'></span> Add Template"" id=""addTemplate""></bs:button>"	"<bs:button color=""primary"" size=""md"" colsize=""12"" text=""<span class='fa fa-plus'></span> 雛型を追加"" id=""addTemplate""></bs:button>"
+./report/Upload.jsp	"<bs:datatable columns=""Select, Name,Description,Edit"" classname="""" id=""reports"">"	"<bs:datatable columns=""選択, 名称,説明,編集"" classname="""" id=""reports"">"
+./report/Upload.jsp	"<bs:box type=""warning"" title=""Upload Vulnerability Map: <a href='#' onclick='getVulnMap()'>Download Current Vuln Map </a>"">"	"<bs:box type=""warning"" title=""脆弱性割り当てを送信: <a href='#' onclick='getVulnMap()'>現在の脆弱性割り当てを保存 </a>"">"
+./report/Upload.jsp	<label>Upload data will show in the table below</label>	<label>送信した情報は以下の表に表示されます</label>
+./report/Upload.jsp	"<bs:box type=""primary"" title=""Upload Severity Map: <a href='#' onclick='getSevMap()'>Download Current Severity map </a>"">"	"<bs:box type=""primary"" title=""深刻度割り当てを送信: <a href='#' onclick='getSevMap()'>現在の脆弱性割り当てを保存 </a>"">"
+./report/Upload.jsp	"<bs:box type=""success"" title=""Upload a Sample Report"">"	"<bs:box type=""success"" title=""報告書見本を送信"">"
+./report/Upload.jsp	"<bs:datatable columns=""Name, Mapped Vuln, Description, Reommendation, Severity"" classname="""" id=""vulnTable"">"	"<bs:datatable columns=""名称, 割当済脆弱性, 説明, 推奨事項, 深刻度"" classname="""" id=""vulnTable"">"
+./templates/Templates.jsp	"<i class=""glyphicon glyphicon-pencil""></i> Assessment Templates"	"<i class=""glyphicon glyphicon-pencil""></i> 検査雛型"
+./templates/Templates.jsp	"id=""createTemplate"">New Template</button>"	"id=""createTemplate"">新規作成</button>"
+./templates/Templates.jsp	<th>Description</th>	<th>説明</th>
+./templates/Templates.jsp	<th>Active</th>	<th>有効</th>
+./templates/Templates.jsp	"<small><span><b>Type:</b> <s:property value=""type"" /></span>"	"<small><span><b>検査種別:</b> <s:property value=""type"" /></span>"
+./templates/Templates.jsp	"<span><b>By:</b> <s:property value=""user.fname"" /> <s:property"	"<span><b>作成者:</b> <s:property value=""user.fname"" /> <s:property"
+./templates/Templates.jsp	"<span><b>On:</b> <s:date name=""created"" format=""MM/dd/yyyy""/> </span></small>"	"<span><b>On:</b> <s:date name=""created"" format=""yyyy年MM月dd日""/> </span></small>"
+./templates/Templates.jsp	"<span class=""vulnControl vulnControl-delete""><i class=""fa fa-trash"" title=""Delete Template""></i></span></td>"	"<span class=""vulnControl vulnControl-delete""><i class=""fa fa-trash"" title=""削除""></i></span></td>"
+./templates/Templates.jsp	"<span id=""saveTemplate"" class=""vulnControl pull-right"" style=""margin-top: -40px""><i class=""fa fa-save"" title=""Save Template""></i></span>"	"<span id=""saveTemplate"" class=""vulnControl pull-right"" style=""margin-top: -40px""><i class=""fa fa-save"" title=""保存""></i></span>"
+./users/Users.jsp	"<i class=""glyphicon glyphicon-user""></i> User Admin <small>"	"<i class=""glyphicon glyphicon-user""></i> 利用者管理 <small>"
+./users/Users.jsp	User Limit: ${users.size()} of ${userLimit}</small>	利用者制限: ${users.size()} of ${userLimit}</small>
+./users/Users.jsp	"<button class=""btn btn-block btn-primary btn-sm"" id=""addUser"">Add"	"<button class=""btn btn-block btn-primary btn-sm"" id=""addUser"">利用者"
+./users/Users.jsp	User</button>	追加</button>
+./users/Users.jsp	<th>UserName</th>	<th>ID</th>
+./users/Users.jsp	<th>Name</th>	<th>名前</th>
+./users/Users.jsp	<th>email</th>	<th>email</th>
+./users/Users.jsp	<th>Team</th>	<th>組織</th>
+./users/Users.jsp	<th>Authentication</th>	<th>認証</th>
+./users/Users.jsp	<th>Last Login</th>	<th>最終利用</th>
+./users/Users.jsp	<th>Locked?</th>	<th>ロック中?</th>
+./users/Users.jsp	"<td><s:date name=""lastLogin"" format=""yyyy-MM-dd hh:mm:ss"" /></td>"	"<td><s:date name=""lastLogin"" format=""yyyy年MM月dd日 hh:mm:ss"" /></td>"
+./users/Users.jsp	"<button id=""createTeam"" class=""btn btn-block btn-primary btn-sm"">Add"	"<button id=""createTeam"" class=""btn btn-block btn-primary btn-sm"">組織"
+./users/Users.jsp	Team</button>	追加</button>
+./users/Users.jsp	<th>Team Name</th>	<th>組織名</th>
+./users/Users.jsp	"<bs:inputgroup name=""Use It Or Loose It Days"" colsize=""4"""	"<bs:inputgroup name=""次の日数未ログインの場合失効"" colsize=""4"""
+./users/Users.jsp	"<bs:button color=""primary"" id=""uioli-btn"" text=""Update"""	"<bs:button color=""primary"" id=""uioli-btn"" text=""更新"""
+./users/Users.jsp	"<h3 class=""box-title"">LDAP Configuration</h3>"	"<h3 class=""box-title"">LDAP設定</h3>"
+./users/Users.jsp	"<bs:inputgroup name=""LDAP URL"" colsize=""4"" id=""ldapURL"""	"<bs:inputgroup name=""LDAP URL"" colsize=""4"" id=""ldapURL"""
+./users/Users.jsp	"<bs:inputgroup name=""LDAP Base DN"" colsize=""4"" id=""ldapBaseDn"""	"<bs:inputgroup name=""LDAP ベース DN"" colsize=""4"" id=""ldapBaseDn"""
+./users/Users.jsp	"<bs:inputgroup name=""LDAP Bind DN"" colsize=""4"" id=""ldapUserName"""	"<bs:inputgroup name=""LDAP バインド DN"" colsize=""4"" id=""ldapUserName"""
+./users/Users.jsp	"<bs:inputgroup name=""LDAP Password"" colsize=""4"""	"<bs:inputgroup name=""LDAP パスワード"" colsize=""4"""
+./users/Users.jsp	"placeholder=""LDAP Bind Password""></bs:inputgroup>"	"placeholder=""LDAP バインドパスワード""></bs:inputgroup>"
+./users/Users.jsp	"<label>Security</label> <select class=""form-control select2"""	"<label>セキュリティ</label> <select class=""form-control select2"""
+./users/Users.jsp	"<s:if test=""ldapSecurity == \""None\"""">selected=""selected""</s:if>>None</option>"	"<s:if test=""ldapSecurity == \""None\"""">selected=""selected""</s:if>>なし</option>"
+./users/Users.jsp	"<s:if test=""ldapSecurity == \""SSL\"""">selected=""selected""</s:if>>SSL</option>"	"<s:if test=""ldapSecurity == \""SSL\"""">selected=""selected""</s:if>>SSL</option>"
+./users/Users.jsp	"<s:if test=""ldapSecurity == \""TLS\"""">selected=""selected""</s:if>>TLS</option>"	"<s:if test=""ldapSecurity == \""TLS\"""">selected=""selected""</s:if>>TLS</option>"
+./users/Users.jsp	<label>Disable Cert Verification</label>	<label>証明書検証を無効化</label>
+./users/Users.jsp	"<bs:inputgroup name=""LDAP Object Class"" colsize=""4"""	"<bs:inputgroup name=""LDAP オブジェクトクラス"" colsize=""4"""
+./users/Users.jsp	"id=""ldapObjectClass"" placeholder=""e.g. user, person""><s:property value=""ldapObjectClass"" /></bs:inputgroup>"	"id=""ldapObjectClass"" placeholder=""例: user, person""><s:property value=""ldapObjectClass"" /></bs:inputgroup>"
+./users/Users.jsp	"<bs:button color=""primary"" id=""ldapSave"" text=""Save"" size=""md"""	"<bs:button color=""primary"" id=""ldapSave"" text=""保存"" size=""md"""
+./users/Users.jsp	"<bs:button color=""success"" id=""ldapTest"" text=""Test Connection"""	"<bs:button color=""success"" id=""ldapTest"" text=""接続テスト"""
+./users/Users.jsp	"<h3 class=""box-title"">OAUTH2.0 Configuration</h3>"	"<h3 class=""box-title"">OAUTH2.0設定</h3>"
+./users/Users.jsp	"<bs:inputgroup name=""Client Id"" colsize=""4"" id=""oauthClientId"""	"<bs:inputgroup name=""クライアントID"" colsize=""4"" id=""oauthClientId"""
+./users/Users.jsp	"<bs:inputgroup name=""OAuth Discovery URI"" colsize=""4"" id=""oauthDiscoveryURI"""	"<bs:inputgroup name=""OAuth Discovery URI"" colsize=""4"" id=""oauthDiscoveryURI"""
+./users/Users.jsp	"<bs:inputgroup name=""Client Secret"" colsize=""4"""	"<bs:inputgroup name=""クライアントシークレット"" colsize=""4"""
+./users/Users.jsp	"<bs:button color=""primary"" id=""oauthSave"" text=""Save"" size=""md"""	"<bs:button color=""primary"" id=""oauthSave"" text=""保存"" size=""md"""
+./users/Users.jsp	"<h3 class=""box-title"">SAML2 Configuration</h3>"	"<h3 class=""box-title"">SAML2設定</h3>"
+./users/Users.jsp	"<bs:inputgroup name=""App Federation Metadata Url"" colsize=""12"" id=""saml2MetaUrl"""	"<bs:inputgroup name=""アプリ フェデレーション メタデータ URL"" colsize=""12"" id=""saml2MetaUrl"""
+./users/Users.jsp	"<bs:button color=""primary"" id=""saml2Save"" text=""Save"" size=""md"""	"<bs:button color=""primary"" id=""saml2Save"" text=""保存"" size=""md"""
+./users/Users.jsp	"<b><i class=""glyphicon glyphicon-user""></i> User Edit Form</b>"	"<b><i class=""glyphicon glyphicon-user""></i> ユーザー編集フォーム</b>"
+./users/Users.jsp	"<label>User: *</label> <input class=""form-control"" id=""uname"""	"<label>ユーザー: *</label> <input class=""form-control"" id=""uname"""
+./users/Users.jsp	"<label>Password:</label> <input class=""form-control"" id=""credential"""	"<label>パスワード:</label> <input class=""form-control"" id=""credential"""
+./users/Users.jsp	"<label>First Name: *</label> <input type=""search"""	"<label>名: *</label> <input type=""search"""
+./users/Users.jsp	"<label for=""lname"">Last: *</label> <input type=""input"""	"<label for=""lname"">姓: *</label> <input type=""input"""
+./users/Users.jsp	"<label>Email: *</label> <input type=""input"""	"<label>メールアドレス: *</label> <input type=""input"""
+./users/Users.jsp	<label>Team Name: *</label> <select	<label>チーム名: *</label> <select
+./users/Users.jsp	<label>Authentication Method: *</label> <select	<label>認証方式: *</label> <select
+./users/Users.jsp	"<label for=""api"">API Key:</label> <input type=""input"""	"<label for=""api"">APIキー:</label> <input type=""input"""
+./users/Users.jsp	</div> Admin	</div> 管理者
+./users/Users.jsp	</div> Manager	</div> 責任者
+./users/Users.jsp	</div> Assessor	</div> 検査者
+./users/Users.jsp	</div> Scheduling	</div> 計画
+./users/Users.jsp	</div> Remediation	</div> 修正
+./users/Users.jsp	</div> API Key	</div> APIキー
+./users/Users.jsp	</div> inActive	</div> 無効
+./users/Users.jsp	"</label> <br> <label class=""col-sm-12"">Access Level * </label>"	"</label> <br> <label class=""col-sm-12"">権限設定 * </label>"
+./users/Users.jsp	"${tier=='consultant'? ""disabled"" : """"}>&nbsp;Only"	"${tier=='consultant'? ""disabled"" : """"}>&nbsp;"
+./users/Users.jsp	Assessments Owned by User&nbsp;&nbsp;</input> <input type=radio	自身が担当する検査のみ&nbsp;&nbsp;</input> <input type=radio
+./users/Users.jsp	"${tier=='consultant'? ""disabled"" : """"}>&nbsp;Team"	"${tier=='consultant'? ""disabled"" : """"}>&nbsp;"
+./users/Users.jsp	"Assessments&nbsp;&nbsp;</input> <input type=radio name=""accesslevel"""	"組織内の検査のみ&nbsp;&nbsp;</input> <input type=radio name=""accesslevel"""
+./users/Users.jsp	"value=""0"" ${tier=='consultant'? ""disabled"" : """"}>&nbsp;All"	"value=""0"" ${tier=='consultant'? ""disabled"" : """"}>&nbsp;"
+./users/Users.jsp	Assessments&nbsp;&nbsp;</input>	すべての検査&nbsp;&nbsp;</input>
+./users/Users.jsp	"data-dismiss=""modal"">Close</button>"	"data-dismiss=""modal"">閉じる</button>"
+./users/Users.jsp	"<i class=""fa fa-save""></i> Save changes"	"<i class=""fa fa-save""></i> 変更を保存"
+./users/Users.jsp	"<b><i class=""glyphicon glyphicon-user""></i> Team Edit Form</b>"	"<b><i class=""glyphicon glyphicon-user""></i> 組織編集</b>"
+./users/Users.jsp	"<label>Team Name:</label> <input type=""input"""	"<label>組織名:</label> <input type=""input"""

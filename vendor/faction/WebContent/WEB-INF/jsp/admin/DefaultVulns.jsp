@@ -176,13 +176,13 @@ span.Critical {
 				</bs:row>
 				<bs:row>
 					<bs:mco colsize="3">
-						<button class="btn btn-danger" id="importDB">Github上のVulnDBから
-							Faction</button>
+						<button class="btn btn-danger" id="importDB">Factionから
+							インポート</button>
 
 					</bs:mco>
 					<bs:mco colsize="3">
-						<a href="https://github.com/factionsecurity/data/tree/master/db">
-							インポート</a>
+						<a href="https://github.com/fuchse-ohren/faction-vuln-data/tree/master/db">
+							脆弱性定義をGithubで閲覧</a>
 					</bs:mco>
 					<bs:mco colsize="3">
 						<a class="btn btn-success"

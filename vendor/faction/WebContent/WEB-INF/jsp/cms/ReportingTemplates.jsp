@@ -27,9 +27,9 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			<i class="glyphicon glyphicon-book"></i> Report Templates <small><a
+			<i class="glyphicon glyphicon-book"></i> 報告書雛型 <small><a
 				href="https://www.fusesoftsecurity.com/manual/report-designer-tags/"
-				target="_blank">Listing of Report Template Tags</a></small>
+				target="_blank">報告書雛型タグ一覧</a></small>
 		</h1>
 	</section>
 
@@ -42,33 +42,33 @@
 						<bs:mco colsize="12">
 							<bs:box type="primary" title="CSS">
 								<bs:row>
-									<bs:inputgroup name="Default Font Family" colsize="12"
+									<bs:inputgroup name="規定のフォント" colsize="12"
 										id="fontname"><s:property value="fontname" /></bs:inputgroup>
 								</bs:row>
 								<br>
 								<bs:row>
-									<bs:button color="primary" size="md" colsize="6" text="Update"
+									<bs:button color="primary" size="md" colsize="6" text="適用"
 										id="cssUpdate"></bs:button>
 									<bs:button color="warning" size="md" colsize="6"
-										text="Edit CSS" id="editCSS"></bs:button>
+										text="CSSを編集" id="editCSS"></bs:button>
 								</bs:row>
 								<br>
 								<hr>
 								<s:if test="sectionsEnabled">
 									<bs:row>
 										<div class="box-header with-border">
-											<h3 class="box-title">Report Sections</h3>
+											<h3 class="box-title">章立て</h3>
 										</div>
 									</bs:row>
 									<bs:row>
 										<input type="text" id="sectionName" class="form-control" placeholder="Report Section Name"/>
 										<br>
-										<button class="btn btn-block btn-info btn-lg" id="addSection">Add
-											Section</button>
+										<button class="btn btn-block btn-info btn-lg" id="addSection">章を
+											追加</button>
 											<br>
 									</bs:row>
 									<bs:row>
-										<bs:datatable columns="Section Name,Variable,Edit"
+										<bs:datatable columns="章,変数,編集"
 											classname="primary" id="reportSectionsTable">
 											<s:iterator value="reportSections" var="sectionName">
 												<tr>
@@ -86,16 +86,16 @@
 								<hr>
 								<bs:row>
 									<div class="box-header with-border">
-										<h3 class="box-title">Generate Sample Reports</h3>
+										<h3 class="box-title">報告書見本を作成</h3>
 									</div>
 								</bs:row>
 								<bs:row>
-									<bs:select name="Assessment Type" colsize="6" id="asmtType">
+									<bs:select name="検査種別" colsize="6" id="asmtType">
 										<s:iterator value="types">
 											<option value="${id }">${type }</option>
 										</s:iterator>
 									</bs:select>
-									<bs:select name="Assessment Team" colsize="6" id="asmtTeam">
+									<bs:select name="検査組織" colsize="6" id="asmtTeam">
 										<s:iterator value="teams">
 											<option value="${id }">${teamName }</option>
 										</s:iterator>
@@ -103,12 +103,12 @@
 								</bs:row>
 								<bs:row>
 									<bs:mco colsize="12">
-										<input id="doRetest" type="checkbox" />&nbsp;&nbsp;Gen Retest Report</bs:mco>
+										<input id="doRetest" type="checkbox" />&nbsp;&nbsp;再検査報告書を生成</bs:mco>
 								</bs:row>
 								<bs:row>
 									<br>
 									<bs:button color="success" size="md" colsize="12"
-										text="Show Sample Report" id="sample"></bs:button>
+										text="報告書見本を表示" id="sample"></bs:button>
 								</bs:row>
 
 							</bs:box>
@@ -123,8 +123,8 @@
 										href="https://github.com/factionsecurity/report_templates/raw/main/default-report-template.docx">Example
 											Template docx</a></li>
 									<li><a
-										href="https://docs.factionsecurity.com/Custom%20Security%20Report%20Templates/">Report
-											Variables and Scripting</a></li>
+										href="https://docs.factionsecurity.com/Reporting/1.%20Using%20Docx%20Report%20Templates/">雛型の
+											変数と作成方法</a></li>
 								</ul>
 							</bs:box>
 						</bs:mco>
@@ -132,8 +132,8 @@
 				</bs:mco>
 				<bs:mco colsize="9">
 					<button class="btn btn-success" style="margin-bottom: 5px;"
-						id="addTemplate">Add Template</button>
-					<bs:datatable columns="Name,Team,Type,Retest?,Edit"
+						id="addTemplate">雛型を作成</button>
+					<bs:datatable columns="名称,組織,検査種別,再検査?,編集"
 						classname="primary" id="templates">
 						<s:iterator value="templates">
 							<tr>
@@ -155,7 +155,7 @@
 
 
 
-		<bs:modal modalId="cssModal" saveId="SaveCSS" title="Edit CSS">
+		<bs:modal modalId="cssModal" saveId="SaveCSS" title="CSSを保存">
 			<textarea id="css" style="height: auto">${css}</textarea>
 		</bs:modal>
 

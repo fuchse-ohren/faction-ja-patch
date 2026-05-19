@@ -90,7 +90,7 @@ public class FSUtils {
 	private static String UNKNOWN = "Uncategorized";
 
 	public static String jtidy(String html) {
-		
+
         MethodProfiler.ProfileContext context = MethodProfiler.start("FSUtils", "jtidy");
         try {
 			// figures seems to kill the whole message.
@@ -225,7 +225,7 @@ public class FSUtils {
 		// Create the default Categories
 		createCategories(em);
 		// Load external resource of vulnerability data.
-		String vdbzip = "https://codeload.github.com/factionsecurity/data/zip/master";
+		String vdbzip = "https://codeload.github.com/fuchse-ohren/faction-vuln-data/zip/master";
 		URL obj = new URL(vdbzip);
 		HttpURLConnection conn = null;
 		if (proxyurl != null) {
@@ -257,7 +257,7 @@ public class FSUtils {
 		while ((entry = zis.getNextEntry()) != null) {
 			String name = entry.getName();
 			// Only read files in the right path
-			if (name.startsWith("data-master/db/") && entry.getSize() != 0l && !name.contains(".gitignore")) {
+			if (name.startsWith("faction-vuln-data-maste/db/ja") && entry.getSize() != 0l && !name.contains(".gitignore")) {
 				byte[] file = new byte[(int) entry.getSize()];
 				Scanner sc = new Scanner(zis);
 				String jsonStr = "";
@@ -490,7 +490,7 @@ public class FSUtils {
 		}
 
 	}
-	
+
 	public static String md5hash(String data) {
 		try {
 			MessageDigest md;
@@ -570,17 +570,17 @@ public class FSUtils {
 
 	}
 
-	
+
 	 /**
      * Creates ICS content for a calendar event
      */
     public static String createICSContent(String title, String description, String location,
                                          LocalDateTime startTime, LocalDateTime endTime,
                                          String organizer, String[] attendees) {
-        
+
         StringBuilder ics = new StringBuilder();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'");
-        
+
         // Convert to UTC for ICS format
         if(startTime == null) {
         	startTime = LocalDateTime.now();
@@ -597,18 +597,18 @@ public class FSUtils {
         String nowUTC = LocalDateTime.now().atZone(ZoneId.systemDefault())
                                           .withZoneSameInstant(ZoneId.of("UTC"))
                                           .format(formatter);
-        
+
         // Generate unique ID
-        
+
         String uid = UUID.randomUUID().toString() + "@factionsecurity.com";
-        
+
         // Build ICS content
         ics.append("BEGIN:VCALENDAR\r\n");
         ics.append("VERSION:2.0\r\n");
         ics.append("PRODID:-//FACTIONSECURITYLLC//FACTION//EN\r\n");
         ics.append("METHOD:REQUEST\r\n");
         ics.append("CALSCALE:GREGORIAN\r\n");
-        
+
         ics.append("BEGIN:VEVENT\r\n");
         ics.append("UID:").append(uid).append("\r\n");
         ics.append("DTSTAMP:").append(nowUTC).append("\r\n");
@@ -616,13 +616,13 @@ public class FSUtils {
         ics.append("DTEND:").append(endUTC).append("\r\n");
         ics.append("SUMMARY:").append(escapeText(title)).append("\r\n");
         ics.append("DESCRIPTION:").append(escapeText(description)).append("\r\n");
-        
+
         if (location != null && !location.trim().isEmpty()) {
             ics.append("LOCATION:").append(escapeText(location)).append("\r\n");
         }
-        
+
         ics.append("ORGANIZER:MAILTO:").append(organizer).append("\r\n");
-        
+
         // Add attendees
         if (attendees != null) {
             for (String attendee : attendees) {
@@ -630,16 +630,16 @@ public class FSUtils {
                    .append("RSVP=TRUE:MAILTO:").append(attendee).append("\r\n");
             }
         }
-        
+
         ics.append("STATUS:CONFIRMED\r\n");
         ics.append("SEQUENCE:0\r\n");
         ics.append("REQUEST-STATUS:2.0;Success\r\n");
         ics.append("END:VEVENT\r\n");
         ics.append("END:VCALENDAR\r\n");
-        
+
         return ics.toString();
     }
-    
+
     /**
      * Escapes special characters in ICS text fields
      */
@@ -657,15 +657,15 @@ public class FSUtils {
 	private static String getDescriptionFromVulnDB(String reference) {
 		try {
 			String reference_id = reference.replace("#/files/description/", "");
-			URL url = new URL("https://raw.githubusercontent.com/factionsecurity/data/master/db/en/description/"
+			URL url = new URL("https://raw.githubusercontent.com/fuchse-ohren/faction-vuln-data/master/db/ja/description/"
 					+ reference_id + ".md");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			InputStream responseStream = connection.getInputStream();
 			String contents = IOUtils.toString(responseStream, StandardCharsets.UTF_8);
 			contents = convertFromMarkDown(contents);
-			/// This line is because new lines show up string concatinated in the editor. 
+			/// This line is because new lines show up string concatinated in the editor.
 			contents = contents.replaceAll("\n", " ");
-			return contents; 
+			return contents;
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 			return "";
@@ -680,12 +680,12 @@ public class FSUtils {
 			String reference_id = reference.replace("#/files/fix/", "");
 			URL url;
 			url = new URL(
-					"https://raw.githubusercontent.com/factionsecurity/data/master/db/en/fix/" + reference_id + ".md");
+					"https://raw.githubusercontent.com/fuchse-ohren/faction-vuln-data/master/db/ja/fix/" + reference_id + ".md");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			InputStream responseStream = connection.getInputStream();
 			String contents = IOUtils.toString(responseStream, StandardCharsets.UTF_8);
 			contents = convertFromMarkDown(contents);
-			return contents; 
+			return contents;
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 			return "";
@@ -695,7 +695,7 @@ public class FSUtils {
 		}
 
 	}
-	
+
 	public static String getEnv(String ENV_VAR) {
 		String var = System.getenv(ENV_VAR);
 		// Fall back to JVM system properties so tests (and other callers) can
@@ -705,25 +705,25 @@ public class FSUtils {
 		}
 		return var == null ? "" : var;
 	}
-	
+
 	public static String getVersion(ServletContext servletContext) {
 		InputStream inputStream = servletContext.getResourceAsStream("/META-INF/MANIFEST.MF");
 		Manifest manifest;
 		try {
 			manifest = new Manifest(inputStream);
 			return "Version " + manifest.getMainAttributes().getValue("Implementation-Version");
-			
+
 		} catch (IOException e) {
 		} catch(Exception e) {
 		}
 		return "";
-		
+
 	}
-	
+
 	public static ReportOptions getOrCreateReportOptionsIfNotExist(EntityManager em) {
 		ReportOptions RPO = (ReportOptions) em.createQuery("from ReportOptions").getResultList().stream()
 		.findFirst().orElse(null);
-		
+
 		if (RPO == null) {
 			HibHelper.getInstance().preJoin();
 			em.joinTransaction();
@@ -791,15 +791,15 @@ public class FSUtils {
 							"    border:1px solid #cccccc !important; \r\n" +
 							"    font-size:15px; \r\n" +
 							"    padding: 10px 15px; \r\n" +
-							"}\r\n" 
+							"}\r\n"
 			);
-			
+
 			em.persist(RPO);
 			HibHelper.getInstance().commit();
 			}
 		return RPO;
 	}
-	
+
 	public static String convertFromMarkDown(String text) {
 		try {
 			List<Extension> extensions = Arrays.asList(TablesExtension.create());
@@ -830,14 +830,14 @@ public class FSUtils {
 		dueDate.add(Calendar.DAY_OF_YEAR, level.getDaysTillDue());
 		return dueDate.getTime();
 	}
-	
+
 	public static Date getWarn(Date end,int days){
 		Calendar dueDate =  Calendar.getInstance();
 		dueDate.setTime(end);
 		dueDate.add(Calendar.DAY_OF_YEAR, - days);
 		return dueDate.getTime();
 	}
-	
+
 	public static Date getWarning(EntityManager em, Date start, int Level){
 		RiskLevel level = (RiskLevel)em.createQuery("from RiskLevel where riskId = :id")
 				.setParameter("id", Level).getResultList()
@@ -849,16 +849,16 @@ public class FSUtils {
 		dueDate.add(Calendar.DAY_OF_YEAR, level.getDaysTillWarning());
 		return dueDate.getTime();
 	}
-	
+
 	public static String addBadge(String title, String color, String icon) {
 		return String.format("<small class=\"badge badge-%s\"><i class=\"fa %s\"></i>%s</small>",
 				color,
 				icon,
 				title);
 	}
-	
+
 	public static void CheckForUpdatedCustomFields(Assessment assessment, EntityManager em) {
-		
+
 		if(assessment.isFinalized()) {
 			return;
 		}

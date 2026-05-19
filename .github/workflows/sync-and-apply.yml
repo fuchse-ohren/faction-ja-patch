@@ -32,6 +32,10 @@ jobs:
           mkdir -p vendor/faction/
           rsync -a --delete /tmp/faction-main/ vendor/faction/
 
+      - name: replace files
+        run: |
+          rsync -a --delete replace_files/ /tmp/faction-main/
+
       - name: apply ja patch
         run: python3 scripts/apply_ja_patch.py
 

@@ -26,7 +26,7 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			<i class="glyphicon glyphicon-pencil"></i> Assessment Templates
+			<i class="glyphicon glyphicon-pencil"></i> 検査雛型
 		</h1>
 	</section>
 
@@ -43,7 +43,7 @@
 						<div class="row">
 							<div class="col-sm-4" style="margin-bottom: -30px; z-index: 1">
 								<button class="btn btn-block btn-primary btn-sm"
-									id="createTemplate">New Template</button>
+									id="createTemplate">新規作成</button>
 							</div>
 						</div>
 						<table id="templateTable"
@@ -51,8 +51,8 @@
 							<thead class="theader">
 								<tr>
 									<th></th>
-									<th>Description</th>
-									<th>Active</th>
+									<th>説明</th>
+									<th>有効</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -61,14 +61,14 @@
 									<tr id="template${id}">
 										<td><s:property value="id" /></td>
 										<td><b><s:property value="title" /></b><br/>
-										<small><span><b>Type:</b> <s:property value="type" /></span>
-										<span><b>By:</b> <s:property value="user.fname" /> <s:property
+										<small><span><b>検査種別:</b> <s:property value="type" /></span>
+										<span><b>作成者:</b> <s:property value="user.fname" /> <s:property
 												value="user.lname" /></span>
-										<span><b>On:</b> <s:date name="created" format="MM/dd/yyyy"/> </span></small>
+										<span><b>On:</b> <s:date name="created" format="yyyy年MM月dd日"/> </span></small>
 										</td>
 										<td><input type="checkbox" class="activeCheckBox" <s:if test="active">checked</s:if> /></td>
 										<td>
-						<span class="vulnControl vulnControl-delete"><i class="fa fa-trash" title="Delete Template"></i></span></td>
+						<span class="vulnControl vulnControl-delete"><i class="fa fa-trash" title="削除"></i></span></td>
 									</tr>
 								</s:iterator>
 							</tbody>
@@ -86,7 +86,7 @@
 					<div id="editorContainer" class="box box-primary disabled">
 						<div class="box-header">
 						<h2><span id="templateName">&nbsp;</span><span id="edits"></span></h2> 
-						<span id="saveTemplate" class="vulnControl pull-right" style="margin-top: -40px"><i class="fa fa-save" title="Save Template"></i></span>
+						<span id="saveTemplate" class="vulnControl pull-right" style="margin-top: -40px"><i class="fa fa-save" title="保存"></i></span>
 						</div>
 						<div class="box-body">
 							<form>

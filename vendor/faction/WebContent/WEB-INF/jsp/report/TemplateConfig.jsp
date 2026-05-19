@@ -14,7 +14,7 @@
 	<s:if test="id != -1">
 	<div class="col-md-12">
 		<div class="form-group">
-		<label>Default Vulnerability: </label>
+		<label>既定の脆弱性: </label>
 		<input type="text" class="form-control pull-right" id="dtitle" value="${currentMap.defaultVuln.name}" intVal="${currentMap.defaultVuln.id}" style="z-index:99999999">
 		</div>
 	</div>

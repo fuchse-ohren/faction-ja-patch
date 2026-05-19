@@ -18,7 +18,7 @@ z-index:1000;
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      <i class="glyphicon glyphicon-wrench"></i> XML Report Configuration
+      <i class="glyphicon glyphicon-wrench"></i> XML報告書設定
       <small></small>
     </h1>
   </section>
@@ -27,11 +27,11 @@ z-index:1000;
   <section class="content">
 <bs:row>
   <bs:mco colsize="4">
-  	<bs:box type="success" title="Configured Reports">
+  	<bs:box type="success" title="設定済み報告書">
   	<bs:row>
-  		<bs:button color="primary" size="md" colsize="12" text="<span class='fa fa-plus'></span> Add Template" id="addTemplate"></bs:button>
+  		<bs:button color="primary" size="md" colsize="12" text="<span class='fa fa-plus'></span> 雛型を追加" id="addTemplate"></bs:button>
 		<bs:mco colsize="12">
-			<bs:datatable columns="Select, Name,Description,Edit" classname="" id="reports">
+			<bs:datatable columns="選択, 名称,説明,編集" classname="" id="reports">
 				<s:iterator value="reports">
 					<tr>
 					<td><input type="radio" name="select" value="${id}"/></td>
@@ -54,20 +54,20 @@ z-index:1000;
 	</bs:mco>
 	
 	<bs:mco colsize="4">
-  	<bs:box type="warning" title="Upload Vulnerability Map: <a href='#' onclick='getVulnMap()'>Download Current Vuln Map </a>">
+  	<bs:box type="warning" title="脆弱性割り当てを送信: <a href='#' onclick='getVulnMap()'>現在の脆弱性割り当てを保存 </a>">
 	<bs:mco colsize="12">
 	  <div class="form-group">
-	  	<label>Upload data will show in the table below</label>
+	  	<label>送信した情報は以下の表に表示されます</label>
 	 	<input id="vulnMap" type="file"  name="file_data"/>
 	  </div>
 	  </bs:mco>
 	</bs:box>
 	</bs:mco> 
 	<bs:mco colsize="4">
-  	<bs:box type="primary" title="Upload Severity Map: <a href='#' onclick='getSevMap()'>Download Current Severity map </a>">
+  	<bs:box type="primary" title="深刻度割り当てを送信: <a href='#' onclick='getSevMap()'>現在の脆弱性割り当てを保存 </a>">
 	<bs:mco colsize="12">
 	  <div class="form-group">
-	  	<label>Upload data will show in the table below</label>
+	  	<label>送信した情報は以下の表に表示されます</label>
 	 	<input id="sevMap" type="file"  name="file_data"/>
 	  </div>
 	  </bs:mco>
@@ -76,10 +76,10 @@ z-index:1000;
 	
 	
 	 <bs:mco colsize="12">
-  	<bs:box type="success" title="Upload a Sample Report">
+  	<bs:box type="success" title="報告書見本を送信">
 	<bs:mco colsize="12">
 	  <div class="form-group">
-	  	<label>Upload data will show in the table below</label>
+	  	<label>送信した情報は以下の表に表示されます</label>
 	 	<input id="vulnReport" type="file"  name="file_data"/>
 	  </div>
 	  </bs:mco>
@@ -88,7 +88,7 @@ z-index:1000;
 </bs:row> 
 <bs:row>
 	<bs:mco colsize="12">
-	<bs:datatable columns="Name, Mapped Vuln, Description, Reommendation, Severity" classname="" id="vulnTable">
+	<bs:datatable columns="名称, 割当済脆弱性, 説明, 推奨事項, 深刻度" classname="" id="vulnTable">
 	</bs:datatable>
   	</bs:mco>
   	</bs:row>

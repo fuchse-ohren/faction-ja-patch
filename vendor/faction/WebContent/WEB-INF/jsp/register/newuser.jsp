@@ -35,22 +35,22 @@
 		<form id="login-form"  method="POST">
 			<div class="box-body">
 				<div class="row">
-					<div class="login-group col-md-12" style="text-align: center"><h3>Change Password</h3></div>
+					<div class="login-group col-md-12" style="text-align: center"><h3>パスワードを変更</h3></div>
 					<div class="alert alert-danger" id="messages" style="display:none; margin-top:200px"><a href="#" data-dismiss="alert"></a><s:property value="message"/>
 					</div>
 					<input type="hidden" id="uid" value="<s:property value="uid"/>"/>
 					
 					
 					<div class="form-group">
-						<label for="username" >Username</label><br>
+						<label for="username" >ID</label><br>
 						<input type="text" class="form-control" id="username" name="username" placeholder="" readonly="readonly" value="<s:property value="username"/>">
 					</div>
 					<div class="form-group">
-						<label for="password" >Password</label><br>
+						<label for="password" >パスワード</label><br>
 						<input type="password" class="form-control" id="password" name="password" placeholder="enter new password">
 					</div>
 					<div class="form-group">
-						<label for="confirm" >Confirm Password</label><br>
+						<label for="confirm" >パスワード(再入力)</label><br>
 						<input type="password" class="form-control" id="confirm" name="confirm" placeholder="enter confirm password">
 					</div>
 				</div>
@@ -58,7 +58,7 @@
 			<!-- /.box-body -->
 			<div class="box-footer">
 					
-					<button type="submit" class="btn btn-success pull-right btn-lg" id="update" >Update</button>
+					<button type="submit" class="btn btn-success pull-right btn-lg" id="update" >更新</button>
 			</div>
 				<!-- /.box-footer -->
 		</form>
@@ -67,9 +67,9 @@
 	<s:if test="failed==true">
 							<div id="errorMsg" class="alert alert-danger alert-dismissable">
 								<h4>
-									<i class="icon fa fa-ban"></i> Alert!
+									<i class="icon fa fa-ban"></i> 警告!
 								</h4>
-								User Name and/or Password is invalid
+								IDもしくはパスワードが間違っています
 							</div>
 							<script src="plugins/jQuery/jQuery-2.1.4.min.js"
 								type="text/javascript"></script>

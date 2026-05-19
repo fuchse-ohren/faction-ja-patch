@@ -37,7 +37,7 @@
 						<div class="box-body">
 							<div class="row">
 								<div class="login-group col-md-12" style="text-align: center">
-									<h3>Enter Username to Reset Account</h3>
+									<h3>再設定するアカウントのIDを入力してください</h3>
 								</div>
 							</div>
 							<div class="alert alert-danger" id="messages"
@@ -50,7 +50,7 @@
 
 
 							<div class="form-group">
-								<label for="username">Username</label><br> <input
+								<label for="username">ID</label><br> <input
 									type="text" class="form-control" id="username" name="username"
 									placeholder="">
 							</div>
@@ -60,7 +60,7 @@
 						<div class="box-footer">
 
 							<button type="submit" class="btn btn-success pull-right btn-lg"
-								id="update">Reset</button>
+								id="update">再設定</button>
 						</div>
 						<!-- /.box-footer -->
 				</div>
@@ -69,7 +69,7 @@
 				<s:if test="failed==true">
 					<div id="errorMsg" class="alert alert-danger alert-dismissable" style="margin-top:70px; padding-top:10px">
 						<h4>
-							<i class="icon fa fa-ban"></i> Alert!
+							<i class="icon fa fa-ban"></i> 警告!
 						</h4>
 						<s:property value="message" />
 					</div>

@@ -42,7 +42,7 @@
 						<bs:mco colsize="12">
 							<bs:box type="primary" title="CSS">
 								<bs:row>
-									<bs:inputgroup name="規定のフォント" colsize="12"
+									<bs:inputgroup name="既定のフォント" colsize="12"
 										id="fontname"><s:property value="fontname" /></bs:inputgroup>
 								</bs:row>
 								<br>

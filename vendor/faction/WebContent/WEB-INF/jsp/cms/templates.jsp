@@ -24,7 +24,7 @@ height: 700px;
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      <i class="glyphicon glyphicon-book"></i> Report Templates
+      <i class="glyphicon glyphicon-book"></i> 報告書雛型
       <small><a href="http://blog.fusesoftsecurity.com/p/report-designer-tags.html" target="_blank"></a></small>
     </h1>
   </section>
@@ -33,7 +33,7 @@ height: 700px;
   <section class="content">
   <bs:row>
   <bs:mco colsize="12">
-  <<bs:datatable columns="Template Name,Team" classname="" id="" >
+  <<bs:datatable columns="報告書,組織" classname="" id="" >
   <s:iterator var="reports">
   		<tr id="rpt_${id }"><td>${name }</td><td>${team.teamName}</td></tr>
   </s:iterator>

@@ -17,7 +17,7 @@ TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
 ---
 
-# OWASP Faction (vendor/faction 配下)
+# OWASP Faction (`vendor/faction`、`/replace_files`)
 ```
 GNU GENERAL PUBLIC LICENSE
    Version 2, June 1991

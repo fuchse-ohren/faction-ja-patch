@@ -257,7 +257,7 @@ public class FSUtils {
 		while ((entry = zis.getNextEntry()) != null) {
 			String name = entry.getName();
 			// Only read files in the right path
-			if (name.startsWith("faction-vuln-data-maste/db/ja") && name.endsWith(".json") && entry.getSize() != 0l && !name.contains(".gitignore")) {
+			if (name.startsWith("data-master/db/") && entry.getSize() != 0l && !name.contains(".gitignore")) {
 				byte[] file = new byte[(int) entry.getSize()];
 				Scanner sc = new Scanner(zis);
 				String jsonStr = "";

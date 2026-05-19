@@ -16,9 +16,9 @@ public class Status {
 	private Long id;
 	private String name;
 	private Boolean builtin=false;
-
+	
 	public Status() {}
-
+	
 	public Status(String name){
 		this.name = name;
 	}
@@ -38,23 +38,23 @@ public class Status {
 	public Boolean getBuiltin() {
 		return this.builtin;
 	}
-
+	
 	@Transient
 	private static List<Status> createBuiltins() {
 		List<Status> builtins = new ArrayList<>();
-		builtins.add(new Status("計画済", true));
-		builtins.add(new Status("進行中", true));
-		builtins.add(new Status("保留中", true));
-		builtins.add(new Status("完了", true));
-		builtins.add(new Status("遅延", true));
+		builtins.add(new Status("Scheduled", true));
+		builtins.add(new Status("In Progress", true));
+		builtins.add(new Status("On Hold", true));
+		builtins.add(new Status("Completed", true));
+		builtins.add(new Status("Past Due", true));
 		return builtins;
 	}
-
+	
 	@Transient
 	private static Boolean checkIfBuiltinsExist(EntityManager em) {
 		return em.createQuery("from Status").getResultList().size() > 0;
 	}
-
+	
 	@Transient
 	private static void createBuiltins(EntityManager em) {
 		HibHelper.getInstance().preJoin();
@@ -66,7 +66,7 @@ public class Status {
 		}
 		HibHelper.getInstance().commit();
 	}
-
+	
 	@Transient
 	public static void createBuiltinsIfNotExist() {
 		EntityManager em = HibHelper.getInstance().getEMF().createEntityManager();

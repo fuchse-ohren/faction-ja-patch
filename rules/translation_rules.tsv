@@ -681,7 +681,7 @@ filepath	source_en	target_ja
 ./cvss40.jsp	"<bs:mco colsize=""3""><label>Value Density (V):</label> </bs:mco>"	"<bs:mco colsize=""3""><label>価値密度 (V):</label> </bs:mco>"
 ./cvss40.jsp	"name=""v"" id=""v_d"" autocomplete=""off"" value=""D""> Diffuse (D) "	"name=""v"" id=""v_d"" autocomplete=""off"" value=""D""> 粗 (D) "
 ./cvss40.jsp	"name=""v"" id=""v_c"" autocomplete=""off"" value=""C""> Concentrated (C) "	"name=""v"" id=""v_c"" autocomplete=""off"" value=""C""> 密 (C) "
-./cvss40.jsp	"<bs:mco colsize=""3""><label>Vulnerability Response Effort (RE):</label> </bs:mco>"	"<bs:mco colsize=""3""><label>Vulnerability 脆弱性対応困難性 (RE):</label> </bs:mco>"
+./cvss40.jsp	"<bs:mco colsize=""3""><label>Vulnerability Response Effort (RE):</label> </bs:mco>"	"<bs:mco colsize=""3""><label>脆弱性対応困難性 (RE):</label> </bs:mco>"
 ./cvss40.jsp	"name=""re"" id=""re_l"" autocomplete=""off"" value=""L""> Low (L) "	"name=""re"" id=""re_l"" autocomplete=""off"" value=""L""> 低 (L) "
 ./cvss40.jsp	"name=""re"" id=""re_m"" autocomplete=""off"" value=""M""> Moderate (M) "	"name=""re"" id=""re_m"" autocomplete=""off"" value=""M""> 中 (M) "
 ./cvss40.jsp	"name=""re"" id=""re_h"" autocomplete=""off"" value=""H""> High (H) "	"name=""re"" id=""re_h"" autocomplete=""off"" value=""H""> 高 (H) "

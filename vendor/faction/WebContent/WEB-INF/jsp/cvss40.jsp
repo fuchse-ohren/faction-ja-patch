@@ -18,7 +18,7 @@
 				</bs:row>
 				<bs:row>
 					<bs:mco colsize="12">
-						<h4><b><center><u>Exploitability Metrics</u></center></b></h4>
+						<h4><b><center><u>攻撃の難易度</u></center></b></h4>
 						<br/>
 					</bs:mco>
 				</bs:row>
@@ -294,7 +294,7 @@
 			</bs:row>
 			<br/>
 			<bs:row>
-				<bs:mco colsize="3"><label>Vulnerability 脆弱性対応困難性 (RE):</label> </bs:mco>
+				<bs:mco colsize="3"><label>脆弱性対応困難性 (RE):</label> </bs:mco>
 				<bs:mco colsize="9">
 						<div class="btn-group btn-group-toggle" data-toggle="buttons">
 							<label class="btn btn-secondary vector"> <input
@@ -339,7 +339,7 @@
 				<br/>
 			<bs:row>
 				<bs:mco colsize="12">
-					<h4><b><center><u>Exploitability Metrics</u></center></b></h4>
+					<h4><b><center><u>攻撃の難易度</u></center></b></h4>
 					<br/>
 				</bs:mco>
 			</bs:row>
